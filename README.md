@@ -1,5 +1,7 @@
 # notification-service
 
+[![Build Status](https://jenkins.din-cloud.com/buildStatus/icon?job=mydnacodes%2Fnotification-service%2Fmaster&subject=CI/CD)](https://jenkins.din-cloud.com/job/mydnacodes/job/notification-service/job/master/)
+
 ### Library
 ```xml
 <dependency>
