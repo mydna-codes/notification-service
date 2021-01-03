@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <changeSet author="DinMusic" id="create_email_entity_table">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="email_table"/>
+            </not>
+        </preConditions>
+        <createTable tableName="email_table">
+            <!-- Base -->
+            <column name="id" type="varchar(128)">
+                <constraints primaryKey="true"
+                             unique="true"
+                             nullable="false"/>
+            </column>
+            <column name="created" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <!-- Table specific -->
+            <column name="sent_to" type="varchar(256)"/>
+            <column name="sent_from" type="varchar(256)"/>
+            <column name="subject" type="varchar(256)"/>
+            <column name="content" type="varchar(2048)"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
