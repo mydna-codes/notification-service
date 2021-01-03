@@ -36,7 +36,7 @@ public class ArchiveResource implements ArchiveResourceDefinition {
     public Response getSavedEmails() {
         QueryParameters qp = QueryParametersBuilder.buildDefault(uriInfo.getRequestUri().getRawQuery());
         EntityList<Email> emails = archiveService.getSavedEmails(qp);
-        return Response.ok().entity(emails).header(Headers.XTotalCount, emails.getCount()).build();
+        return Response.ok().entity(emails.getList()).header(Headers.XTotalCount, emails.getCount()).build();
     }
 
     @Override
