@@ -105,6 +105,18 @@ pipeline {
         }
         stage("Deploy application") {
             steps {
+                script {
+                    try {
+                        if (!(env.GIT_BRANCH.equals("prod") || env.GIT_BRANCH.equals("origin/prod"))) {
+                            withKubeConfig([credentialsId: KUBERNETES_CREDENTIALS]) {
+                                sh "kubectl delete deployments.apps -n mydnacodes notification-service-app"
+                            }
+                        }
+                    } catch (Exception e) {
+                        echo "Deployment has not been scaled."
+                        echo e.getMessage()
+                    }
+                }
 
                 withKubeConfig([credentialsId: KUBERNETES_CREDENTIALS]) {
                     sh "kubectl apply -f .kube/"
