@@ -1,12 +1,15 @@
 package codes.mydna.api.resources;
 
 import codes.mydna.api.resources.definitions.ArchiveResourceDefinition;
+import codes.mydna.auth.common.RealmRole;
 import codes.mydna.http.Headers;
 import codes.mydna.lib.Email;
 import codes.mydna.services.ArchiveService;
 import codes.mydna.utils.EntityList;
 import codes.mydna.utils.QueryParametersBuilder;
 import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.mjamsek.auth.keycloak.annotations.RolesAllowed;
+import com.mjamsek.auth.keycloak.annotations.SecureResource;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import javax.enterprise.context.RequestScoped;
@@ -23,6 +26,7 @@ import javax.ws.rs.core.UriInfo;
 @Tag(name = "Archive")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@SecureResource
 @RequestScoped
 public class ArchiveResource implements ArchiveResourceDefinition {
 
@@ -33,6 +37,7 @@ public class ArchiveResource implements ArchiveResourceDefinition {
     private ArchiveService archiveService;
 
     @Override
+    @RolesAllowed(RealmRole.ADMIN)
     public Response getSavedEmails() {
         QueryParameters qp = QueryParametersBuilder.buildDefault(uriInfo.getRequestUri().getRawQuery());
         EntityList<Email> emails = archiveService.getSavedEmails(qp);
@@ -40,6 +45,7 @@ public class ArchiveResource implements ArchiveResourceDefinition {
     }
 
     @Override
+    @RolesAllowed(RealmRole.ADMIN)
     public Response getSavedEmail(String id) {
         Email email = archiveService.getSavedEmail(id);
         return Response.ok().entity(email).build();

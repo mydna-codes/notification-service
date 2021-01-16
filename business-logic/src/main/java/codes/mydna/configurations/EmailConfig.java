@@ -1,4 +1,4 @@
-package codes.mydna.utils;
+package codes.mydna.configurations;
 
 import com.kumuluz.ee.configuration.cdi.ConfigBundle;
 import com.kumuluz.ee.configuration.cdi.ConfigValue;

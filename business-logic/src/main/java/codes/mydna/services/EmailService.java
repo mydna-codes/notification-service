@@ -7,6 +7,6 @@ import codes.mydna.lib.Email;
  */
 public interface EmailService {
 
-    public Email sendEmail(Email email);
+    void sendEmail(Email email);
 
 }

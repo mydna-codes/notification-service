@@ -1,10 +1,9 @@
 package codes.mydna.services.impl;
 
-import codes.mydna.exceptions.RestException;
 import codes.mydna.lib.Email;
 import codes.mydna.services.ArchiveService;
 import codes.mydna.services.EmailService;
-import codes.mydna.utils.EmailConfig;
+import codes.mydna.configurations.EmailConfig;
 import codes.mydna.validation.Assert;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -12,6 +11,7 @@ import javax.inject.Inject;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.ws.rs.InternalServerErrorException;
 import java.util.Properties;
 import java.util.logging.Logger;
 
@@ -27,12 +27,11 @@ public class EmailServiceImpl implements EmailService {
     private EmailConfig emailConfig;
 
     @Override
-    public Email sendEmail(Email email) {
+    public void sendEmail(Email email) {
 
         if(!emailConfig.isSendingAllowed()){
-            LOG.warning("Sending emails is not allowed!");
-            return null;
-            // TODO: Throw exception
+            LOG.warning("Email sending is disabled in configuration server!");
+            return;
         }
 
         String to = email.getTo();
@@ -82,10 +81,8 @@ public class EmailServiceImpl implements EmailService {
                 archiveService.deleteEmail(sentEmail.getId());
             LOG.severe("Failed to send email. Reason: " + e.getMessage());
 
-            // TODO: Throw internal server
+            throw new InternalServerErrorException("Failed to send email");
         }
-
-        return sentEmail;
     }
 
 

@@ -41,6 +41,10 @@
             <artifactId>kumuluzee-rest-client</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.kumuluz.ee.streaming</groupId>
+            <artifactId>kumuluzee-streaming-kafka</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-json-p-jsonp</artifactId>
         </dependency>
@@ -57,6 +61,10 @@
             <artifactId>kumuluzee-config-etcd</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>codes.mydna</groupId>
+            <artifactId>auth-keycloak</artifactId>
+        </dependency>
         <dependency>
             <groupId>codes.mydna</groupId>
             <artifactId>rest-lib</artifactId>

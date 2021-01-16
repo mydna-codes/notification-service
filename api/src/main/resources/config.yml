@@ -18,6 +18,16 @@ kumuluzee:
       allow-origin: "*"
       supported-methods: "GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD"
       exposed-headers: "X-Total-Count, Content-Type"
+  streaming:
+    kafka:
+      consumer:
+        bootstrap-servers: localhost:9091
+        group-id: group1
+        enable-auto-commit: true
+        auto-commit-interval-ms: 1000
+        auto-offset-reset: earliest
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
   openapi-mp:
     enabled: true
     servers: http://localhost:8080
