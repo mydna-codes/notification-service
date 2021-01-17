@@ -45,6 +45,10 @@ kumuluzee:
       disk-space-health-check:
         threshold: 100000000
         type: liveness
+      kafka-health-check:
+        bootstrap-servers: localhost:9091
+        minimum-available-nodes: 1
+        request-timeout-ms: 1000
   config:
     namespace: env/dev
     start-retry-delay-ms: 500
