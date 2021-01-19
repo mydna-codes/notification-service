@@ -66,7 +66,6 @@
     </dependencies>
 
     <build>
-        <finalName>notification-service</finalName>
         <plugins>
             <plugin>
                 <groupId>com.kumuluz.ee</groupId>
@@ -76,7 +75,7 @@
                     <execution>
                         <id>package</id>
                         <goals>
-                            <goal>repackage</goal>
+                            <goal>copy-dependencies</goal>
                         </goals>
                     </execution>
                 </executions>

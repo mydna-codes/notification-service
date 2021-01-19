@@ -10,8 +10,8 @@ ENV KUMULUZEE_DATASOURCES0_PASSWORD=postgres
 RUN mkdir /app
 WORKDIR /app
 
-ADD ./api/target/notification-service.jar /app
+ADD ./api/target /app
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "notification-service.jar", "com.kumuluz.ee.EeApplication"]
+CMD ["java", "-cp", "classes:dependency/*", "com.kumuluz.ee.EeApplication"]
