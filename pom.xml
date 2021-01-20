@@ -33,10 +33,10 @@
         <postgresql.version>42.2.18</postgresql.version>
 
         <!-- MyDnaCodes -->
-        <rest-lib.version>1.0.3-SNAPSHOT</rest-lib.version>
-        <auth-lib.version>1.0.1-SNAPSHOT</auth-lib.version>
-        <sequence-bank.version>1.0.0-SNAPSHOT</sequence-bank.version>
-        <analysis-result.version>1.0.0-SNAPSHOT</analysis-result.version>
+        <mydnacodes-rest-lib.version>1.0.3-SNAPSHOT</mydnacodes-rest-lib.version>
+        <mydnacodes-auth-lib.version>1.0.1-SNAPSHOT</mydnacodes-auth-lib.version>
+        <mydnacodes-sequence-bank.version>1.0.0-SNAPSHOT</mydnacodes-sequence-bank.version>
+        <mydnacodes-analysis-result.version>1.0.0-SNAPSHOT</mydnacodes-analysis-result.version>
     </properties>
 
     <dependencyManagement>
@@ -153,22 +153,22 @@
             <dependency>
                 <groupId>codes.mydna.auth</groupId>
                 <artifactId>auth-keycloak</artifactId>
-                <version>${auth-lib.version}</version>
+                <version>${mydnacodes-auth-lib.version}</version>
             </dependency>
             <dependency>
                 <groupId>codes.mydna.rest</groupId>
                 <artifactId>rest-lib</artifactId>
-                <version>${rest-lib.version}</version>
+                <version>${mydnacodes-rest-lib.version}</version>
             </dependency>
             <dependency>
                 <groupId>codes.mydna.sequence-bank</groupId>
                 <artifactId>sequence-bank-lib-v1</artifactId>
-                <version>${sequence-bank.version}</version>
+                <version>${mydnacodes-sequence-bank.version}</version>
             </dependency>
             <dependency>
                 <groupId>codes.mydna.analysis</groupId>
                 <artifactId>analysis-result-lib-v1</artifactId>
-                <version>${analysis-result.version}</version>
+                <version>${mydnacodes-analysis-result.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
