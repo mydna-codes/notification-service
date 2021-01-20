@@ -5,23 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>codes.mydna</groupId>
-        <artifactId>notification-service</artifactId>
+        <groupId>codes.mydna.notification</groupId>
+        <artifactId>notification</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>business-logic</artifactId>
+    <artifactId>notification-business-logic</artifactId>
 
-    <name>business-logic</name>
+    <name>notification-business-logic</name>
 
     <dependencies>
         <dependency>
-            <groupId>codes.mydna</groupId>
-            <artifactId>entities</artifactId>
+            <groupId>codes.mydna.notification</groupId>
+            <artifactId>notification-entities</artifactId>
         </dependency>
         <dependency>
-            <groupId>codes.mydna</groupId>
-            <artifactId>notification-service-lib</artifactId>
+            <groupId>codes.mydna.notification</groupId>
+            <artifactId>notification-lib</artifactId>
         </dependency>
 
         <dependency>
@@ -62,11 +62,11 @@
         </dependency>
 
         <dependency>
-            <groupId>codes.mydna</groupId>
+            <groupId>codes.mydna.auth</groupId>
             <artifactId>auth-keycloak</artifactId>
         </dependency>
         <dependency>
-            <groupId>codes.mydna</groupId>
+            <groupId>codes.mydna.rest</groupId>
             <artifactId>rest-lib</artifactId>
         </dependency>
     </dependencies>

@@ -3,7 +3,7 @@ kumuluzee:
   version: 1.0.0-SNAPSHOT
   dev:
     scan-libraries:
-      - notification-service-lib
+      - notification-lib
       - rest-lib
   env:
     prod: false

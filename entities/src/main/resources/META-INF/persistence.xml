@@ -4,8 +4,8 @@
 
         <non-jta-data-source>jdbc/notification-service-db</non-jta-data-source>
 
-        <class>codes.mydna.entities.BaseEntity</class>
-        <class>codes.mydna.entities.EmailEntity</class>
+        <class>codes.mydna.notification.entities.BaseEntity</class>
+        <class>codes.mydna.notification.entities.EmailEntity</class>
 
         <properties>
             <property name="javax.persistence.schema-generation.create-source" value="metadata"/>
