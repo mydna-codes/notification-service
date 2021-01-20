@@ -22,6 +22,8 @@ public class KafkaConsumer {
     @StreamListener(topics = {"send_email"})
     public void onMessage(ConsumerRecord<String, String> record) {
 
+        LOG.info("Received 'send email' request.");
+
         Email email;
         try {
             ObjectMapper mapper = new ObjectMapper();
